@@ -129,3 +129,17 @@ BibTeX generation, as specified in `plan.md`.
   i5-14600K/Node 24.20.0/Linux; excludes I/O, network, worker startup and debounce.
 - Publishing uses an isolated Git staging repository because the original
   workspace .git directory is managed and read-only. No venv/cache is published.
+
+## GitHub publication and first hosted CI
+
+Public source: https://github.com/quangtrinh25/citetrace
+
+Alpha release: https://github.com/quangtrinh25/citetrace/releases/tag/v0.1.0-alpha.1
+
+All five release assets were uploaded and server SHA-256 digests match the local
+archives. The first hosted run passed Linux Node 22/24, Windows Node 22, macOS
+Node 22 and artifact packaging/install. The Node 24 Windows/macOS jobs exposed
+a timing-dependent filesystem watcher in the bibliography concurrency test.
+The test now inserts a real competing write at a controlled filesystem boundary;
+production code and published binaries are unchanged. The focused six tests and
+strict typecheck pass locally; the updated full matrix is being run on GitHub.

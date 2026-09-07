@@ -52,7 +52,7 @@ One implementation subagent at a time; separate review runs at task boundaries.
 | M1 | implemented | persistence/CLI regressions and scoped re-review pass |
 | M2 | implemented | review fixes accepted; rebuilt installed-VSIX host passed |
 | M3 | ten detectors and decision lifecycle implemented | 245 controlled detector tests; real held-out quality gate pending |
-| M4 | local CLI/VSIX, documentation and artifact CI implemented | fresh CLI/VSIX installs passed; GitHub alpha target quangtrinh25/citetrace |
+| M4 | local CLI/VSIX, documentation and artifact CI implemented | fresh CLI/VSIX installs passed; public GitHub source and v0.1.0-alpha.1 published |
 | M5 | local stabilization verified; pilot protocol ready | real human pilot and stable acceptance pending |
 
 Resume2026-09-07: prior agents were interrupted by account usage limit. Existing
