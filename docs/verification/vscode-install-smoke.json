@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "vscode": "1.111.0",
+  "notebookCells": 3,
+  "links": 2,
+  "unknownLanguageAuthorizedExplicitly": true,
+  "staleStateCleared": true,
+  "extensionId": "citetrace.citetrace",
+  "extensionVersion": "0.1.0-alpha.1",
+  "installation": "VSIX installed by VS Code CLI into fresh profile; host loads only installed extension files",
+  "scope": "Automated host/API smoke; not a timed human pilot or full interactive picker test"
+}

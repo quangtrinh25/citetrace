@@ -1,0 +1,23 @@
+name: Bug report
+description: Report incorrect provenance, installation problems, or editor behavior.
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Commands or editor steps, expected result, and actual result. Use a minimal public example and remove private source or identifiers.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Environment
+      placeholder: CiteTrace version, OS, Node version, VS Code version
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Relevant diagnostics
+      description: Paste sanitized audit output or error messages. Keep the original ledger safe when reporting corruption.

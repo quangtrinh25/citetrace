@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+citetrace_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+if [[ -x "$citetrace_root/.tools/node/bin/node" ]]; then
+  export PATH="$citetrace_root/.tools/node/bin:$citetrace_root/.tools/pnpm/node_modules/.bin:$PATH"
+fi
+export npm_config_cache="$citetrace_root/.tools/npm-cache"
+if [[ -f "$citetrace_root/.tools/pnpm/node_modules/pnpm/bin/pnpm.cjs" ]]; then
+  exec node "$citetrace_root/.tools/pnpm/node_modules/pnpm/bin/pnpm.cjs" "$@"
+fi
+if command -v pnpm >/dev/null 2>&1; then
+  exec pnpm "$@"
+fi
+echo 'pnpm is unavailable. Follow the setup instructions in README.md.' >&2
+exit 1

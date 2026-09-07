@@ -1,0 +1,11 @@
+.venv/
+.tools/
+.superpowers/
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.citetrace/cache/
+__pycache__/
+.ipynb_checkpoints/
+

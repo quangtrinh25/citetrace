@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "noEmit": true, "paths": { "@citetrace/core": ["./packages/core/src/index.ts"] } },
+  "include": ["packages/**/*.ts"],
+  "exclude": ["**/node_modules", "**/dist"]
+}

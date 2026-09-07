@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+citetrace_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+if [[ ! -f "$citetrace_root/packages/cli/dist/main.js" ]]; then
+  echo 'Build the CLI first: ./scripts/pnpm build' >&2
+  exit 1
+fi
+if [[ -x "$citetrace_root/.tools/node/bin/node" ]]; then
+  exec "$citetrace_root/.tools/node/bin/node" "$citetrace_root/packages/cli/dist/main.js" "$@"
+fi
+exec node "$citetrace_root/packages/cli/dist/main.js" "$@"

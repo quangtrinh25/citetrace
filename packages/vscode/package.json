@@ -1,0 +1,59 @@
+{
+  "name": "citetrace",
+  "displayName": "CiteTrace",
+  "description": "Keep the research paper behind your Python code and notebooks.",
+  "version": "0.1.0-alpha.1",
+  "publisher": "citetrace",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/quangtrinh25/citetrace.git" },
+  "homepage": "https://github.com/quangtrinh25/citetrace",
+  "bugs": { "url": "https://github.com/quangtrinh25/citetrace/issues" },
+  "private": true,
+  "type": "module",
+  "engines": { "vscode": "^1.95.0" },
+  "categories": ["Other"],
+  "main": "./dist/extension.cjs",
+  "activationEvents": ["onStartupFinished"],
+  "extensionKind": ["workspace"],
+  "capabilities": { "untrustedWorkspaces": { "supported": "limited", "description": "Read-only audit is available. Provenance writes require a trusted workspace." }, "virtualWorkspaces": false },
+  "scripts": { "build": "tsc -p tsconfig.json --noEmit && node ../../scripts/build-bundles.mjs extension", "typecheck": "tsc -p tsconfig.json --noEmit" },
+  "dependencies": { "@citetrace/core": "workspace:*" },
+  "contributes": {
+    "views": { "explorer": [{ "id": "citetrace", "name": "CiteTrace" }] },
+    "commands": [
+      { "command": "citetrace.init", "title": "CiteTrace: Initialize Project" },
+      { "command": "citetrace.addPaper", "title": "CiteTrace: Add Paper" },
+      { "command": "citetrace.link", "title": "CiteTrace: Link Paper to Code" },
+      { "command": "citetrace.export", "title": "CiteTrace: Export Bibliography" },
+      { "command": "citetrace.refresh", "title": "CiteTrace: Refresh Audit", "icon": "$(refresh)" },
+      { "command": "citetrace.open", "title": "CiteTrace: Open Linked Code" },
+      { "command": "citetrace.unlink", "title": "CiteTrace: Remove Link" },
+      { "command": "citetrace.relink", "title": "CiteTrace: Relink to Code" },
+      { "command": "citetrace.sync", "title": "CiteTrace: Sync Locations" },
+      { "command": "citetrace.accept", "title": "CiteTrace: Accept Suggestion" },
+      { "command": "citetrace.ignore", "title": "CiteTrace: Ignore Suggestion" },
+      { "command": "citetrace.exempt", "title": "CiteTrace: Exempt Suggestion" },
+      { "command": "citetrace.reject", "title": "CiteTrace: Reject Paper Candidate" },
+      { "command": "citetrace.reopen", "title": "CiteTrace: Reopen Decision" },
+      { "command": "citetrace.pythonNotebook", "title": "CiteTrace: Treat Notebook as Python for This Session" }
+    ],
+    "menus": {
+      "view/title": [{ "command": "citetrace.refresh", "when": "view == citetrace", "group": "navigation" }, { "command": "citetrace.addPaper", "when": "view == citetrace" }],
+      "editor/context": [{ "command": "citetrace.link", "when": "editorLangId == python", "group": "citetrace" }],
+      "notebook/cell/title": [{ "command": "citetrace.link", "when": "notebookType == jupyter-notebook", "group": "citetrace" }],
+      "view/item/context": [
+        { "command": "citetrace.accept", "when": "view == citetrace && viewItem == suggestion" },
+        { "command": "citetrace.ignore", "when": "view == citetrace && viewItem == suggestion" },
+        { "command": "citetrace.exempt", "when": "view == citetrace && viewItem == suggestion" },
+        { "command": "citetrace.reject", "when": "view == citetrace && viewItem == suggestion" },
+        { "command": "citetrace.unlink", "when": "view == citetrace && viewItem == link" },
+        { "command": "citetrace.relink", "when": "view == citetrace && viewItem == link" },
+        { "command": "citetrace.reopen", "when": "view == citetrace && viewItem == decision" }
+      ]
+    },
+    "configuration": { "title": "CiteTrace", "properties": {
+      "citetrace.autoExport": { "type": "boolean", "scope": "resource", "default": false, "description": "Update CiteTrace's generated bibliography after explicit confirmed link changes." },
+      "citetrace.offline": { "type": "boolean", "scope": "resource", "default": false, "description": "Use cached metadata or manual entry when adding a paper." }
+    } }
+  }
+}

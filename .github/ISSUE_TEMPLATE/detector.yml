@@ -1,0 +1,22 @@
+name: Detector example
+description: Report a wrong or missing suggestion for a supported concept.
+title: "[Detector]: "
+body:
+  - type: input
+    id: concept
+    attributes:
+      label: Concept and rule version
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Minimal code and expected interpretation
+      description: Include imports and enclosing scope. Explain the method and paper separately; a matching method does not prove its source.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source and license, if applicable
+      description: Include a pinned revision for reproducibility. Do not upload someone else's private code.

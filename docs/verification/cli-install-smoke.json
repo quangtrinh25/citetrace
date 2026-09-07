@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "node": "v24.20.0",
+  "installation": "npm install tarball --offline, fresh prefix/cache, lifecycle scripts enabled",
+  "confirmedLinks": 1
+}

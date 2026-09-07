@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-07T10:19:40.233Z",
+  "cpu": "Intel(R) Core(TM) i5-14600K",
+  "platform": "linux",
+  "arch": "x64",
+  "node": "v24.20.0",
+  "lines": 901,
+  "symbols": 180,
+  "samples": 30,
+  "coldMs": 98.44792299999999,
+  "medianMs": 37.31721200000004,
+  "p95Ms": 48.077960000000076,
+  "scope": "Synthetic Python parser plus detector; excludes filesystem, network, worker startup and editor debounce."
+}
